@@ -8,7 +8,7 @@
 	<body>
 		<a-scene embedded arjs>
 			<a-marker preset="hiro">
-			<!-- create your content here. just a box for now -->
+			<!-- create your content here -->
 			<a-cone color="red"
 				height="1"
 				top-radius="0"
@@ -16,39 +16,11 @@
 				position="0 1.5 0"
 				rotation="-90 0 0">
 			</a-cone>
-		
-			<a-cylinder color="green"
-				height="2"
-				radius="0.5"
-				position="0 8 -10">
-			</a-cylinder>
-		
-            <!-- Top Box -->
-            <a-box color="red" 
-				height="2" 
-				width="2"
-				depth="2"
-                position="0 6 -10"
-				rotation="0 45 0">
-            </a-box>
-			 <a-box color="#000080" 
-				height="2" 
-				width="2"
-				depth="2"
-                position="-1.5 4 -10"
-				rotation="0 45 0">
-            </a-box>
-			 <a-box color="#0080FE" 
-				height="2" 
-				width="2"
-				depth="2"
-                position="1.5 4 -10"
-				rotation="0 -45 0">
-            </a-box>
-		
-			<!-- define a camera which will move according to the marker position -->
+	
 			</a-marker>
-			<a-entity camera></a-entity>
+			<!-- define a camera which will move according to the marker position -->
+			<!-- <a-entity camera></a-entity> -->
+			<a-camera></a-camera>
 		</a-scene>
 	</body>
 </html>
