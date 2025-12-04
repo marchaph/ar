@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+
+      <!-- HIRO Marker -->
+      <a-marker preset="hiro" id="hiroMarker">
+
+        <!-- Moving + Spinning Box -->
+        <a-box id="movingBox"
+               position="-1 0.5 0"
+               color="tomato"
+               depth="0.3" height="0.3" width="0.3"
+               
+               <!-- Move Left → Right -->
+               animation__move="property: position; 
+                                 to: 1 0.5 0;
+                                 dur: 5000; 
+                                 easing: linear; 
+                                 loop: true"
+
+               <!-- Spin While Moving -->
+               animation__spin="property: rotation; 
+                                 to: 0 360 0; 
+                                 dur: 2000; 
+                                 easing: linear; 
+                                 loop: true">
+        </a-box>
+
+        <!-- Hidden Text (Will Fade In) -->
+        <a-text id="revealText"
+                value="Hello AR"
+                position="0 0.2 0"
+                align="center"
+                color="yellow"
+                opacity="0">
+        </a-text>
+
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+      const box = document.querySelector("#movingBox");
+      const text = document.querySelector("#revealText");
+
+      // Fade in text as the box moves left → right
+      box.addEventListener("componentchanged", (e) => {
+        if (e.detail.name !== "position") return;
+
+        const x = e.detail.newData.x;         // current X movement
+        const progress = (x + 1) / 2;         // map -1 → 1 into 0 → 1
+        text.setAttribute("opacity", progress);
+      });
+    </script>
+  </body>
+</html>
