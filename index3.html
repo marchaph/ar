@@ -22,5 +22,27 @@
 
       <a-entity camera></a-entity>
     </a-scene>
+
+    <a-marker preset="hiro" id="hiroMarker">
+    <a-text id="myText"
+            value="Marker Found!"
+            position="0 0.5 0"
+            rotation="-90 0 0"
+            visible="false">
+    </a-text>
+</a-marker>
+
+<!-- <script>
+  const marker = document.querySelector("#hiroMarker");
+  const text = document.querySelector("#myText");
+
+  marker.addEventListener("markerFound", () => {
+    text.setAttribute("visible", true);
+  });
+
+  marker.addEventListener("markerLost", () => {
+    text.setAttribute("visible", false);
+  });
+</script> -->
   </body>
 </html>
