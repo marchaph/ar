@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+
+      <!-- HIRO Marker -->
+      <a-marker preset="hiro">
+        <!-- Text that appears when marker is seen -->
+        <a-text 
+          value="Hello, AR World!" 
+          position="0 0.5 0" 
+          rotation="-90 0 0"
+          scale="1 1 1"
+          color="yellow">
+        </a-text>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
